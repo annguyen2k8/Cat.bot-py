@@ -1,5 +1,5 @@
 {
   "token_bot": "YOUR BOT TOKEN",
   "command_prefix": "!",
-  "openai_token": "YOUR OPENAI API"
+  "api_openai": "YOUR OPENAI API"
 }
