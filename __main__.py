@@ -45,10 +45,10 @@ class color():
   italic = '\33[3m'
   unline = '\33[4m'
 #------------------------------------------------------------------------
-channel_rule = bot.get_channel()
-channel_welcome = bot.get_channel()
-channel_out = bot.get_channel()
-dev_id = 
+channel_rule = bot.get_channel(config["channel_rule"])
+channel_welcome = bot.get_channel(config["channel_welcome"])
+channel_out = bot.get_channel(config["channel_out"])
+dev_id = config["you_id"]
 #------------------------------------------------------------------------
 def get_ram_usage():
   ram = psutil.virtual_memory()
@@ -107,7 +107,6 @@ async def on_member_ban(guild, member):
 async def ping(interaction: discord.Interaction):
   await interaction.response.send_message(f"📡Ping {round(bot.latency*1000)}ms", delete_after=30
                                           )
-
 #------------------------------------------------------------------------
 @bot.tree.command(name="cat", description="tìm ảnh mèo")
 async  def cat(interaction:discord.Interaction):
