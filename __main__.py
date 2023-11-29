@@ -30,8 +30,8 @@ import requests
 with open('config.json') as f:
   config = json.load(f)
 #------------------------------------------------------------------------
-bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
-openai.api_key = 
+bot = commands.Bot(command_prefix=config["command_prefix"], intents=discord.Intents.all())
+openai.api_key = config["openai_token"]
 #------------------------------------------------------------------------
 class color():
   green = '\033[92m'
@@ -48,7 +48,7 @@ class color():
 channel_rule = bot.get_channel()
 channel_welcome = bot.get_channel()
 channel_out = bot.get_channel()
-dev_id = 790909474487271434
+dev_id = 
 #------------------------------------------------------------------------
 def get_ram_usage():
   ram = psutil.virtual_memory()
@@ -206,6 +206,7 @@ async def on_message(message):
         msg = openai.Completion.create(model = 'text-davinci-003', prompt = str(message.content), max_tokens = 3000, temperature=0.7)["choices"][0]["text"]
         await message_reply.edit(content = msg)
 #------------------------------------------------------------------------
-keep_alive(bot.user)
+#ở đây nếu host bot ở máy tính thì xóa cái dòng này, vì dòng này là để khi host trên replit.com thì nó sẽ giữ code luôn chạy
+keep_alive()
 #------------------------------------------------------------------------
-bot.run()
+bot.run(config["token_bot"])
