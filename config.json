@@ -2,4 +2,8 @@
   "token_bot": "YOUR BOT TOKEN",
   "command_prefix": "!",
   "api_openai": "YOUR OPENAI API"
+  "channel_rule": ...,
+  "channel_welcome": ...,
+  "channel_out": ...,
+  "you_id": ....
 }
